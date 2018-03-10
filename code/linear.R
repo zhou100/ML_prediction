@@ -16,11 +16,12 @@ linear_fit <- function(lm_formula, train_data,test_data){
     lm_fit <- lm(formula = lm_formula, data = train_data)
     
     # predict training values
-    pred_train <- predict(fit)
+    pred_train <- predict(lm_fit)
     
     ### compute the TEST predication 
-    pred_test <- predict(lm_fit, test_data)
+    pred_test <- predict(lm_fit, newdata = test_data)
+    pred_list <- list("pred_test" = pred_test, "pred_train" = pred_train)
     
-    return(pred_train,pred_test)
+    return(pred_list)
 }
 
