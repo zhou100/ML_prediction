@@ -1,0 +1,66 @@
+---
+title: "Predicting Food Insecurity with Machine Learning based on readily avaliable data"
+author:
+  - name: Yujun Zhou
+    email: zhou100@illinois.edu
+    affiliation: University Of Illinois At Urbana-Champaign 
+    footnote: Corresponding Author
+  # - name: Paul Economist
+  #   email: pamail@Univerisy.edu
+  #   affiliation: University
+  # - name: Mary Economist
+  #   email: mamail@University.edu
+  #   affiliation: University
+address:
+  - code: University Of Illinois At Urbana-Champaign 
+    address: Department of Agriculture and Consumer Economics, University of Illinois, USA
+    
+abstract: |
+  We determine whether corn and soybean futures contract prices are stationary or not. 
+
+keywords: prices, unit root, stationarity
+bibliography: bibliography.bib
+output: rticles::elsevier_article
+---
+
+ 
+
+```{r, warning = FALSE, message = FALSE, echo=FALSE}
+library(xtable)
+library(ggplot2)
+library(ggfortify)
+library(caret)
+library(AER)
+library(gridExtra)
+```
+
+
+ Temporal Poverty Prediction using Satellite Imagery[@chentemporal].
+
+1. measuring and tracking areas of poor is a necessary step for targeting aid and guiding policy decisions.
+2. obtaining data is time and labor intensive
+3.  [@blumenstock2016fighting]
+
+
+
+# Methods
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+
+# References 

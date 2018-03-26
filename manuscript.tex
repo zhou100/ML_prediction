@@ -1,0 +1,352 @@
+\documentclass[]{elsarticle} %review=doublespace preprint=single 5p=2 column
+%%% Begin My package additions %%%%%%%%%%%%%%%%%%%
+\usepackage[hyphens]{url}
+\usepackage{lineno} % add
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\bibliographystyle{elsarticle-harv}
+\biboptions{sort&compress} % For natbib
+\usepackage{graphicx}
+\usepackage{booktabs} % book-quality tables
+%% Redefines the elsarticle footer
+%\makeatletter
+%\def\ps@pprintTitle{%
+% \let\@oddhead\@empty
+% \let\@evenhead\@empty
+% \def\@oddfoot{\it \hfill\today}%
+% \let\@evenfoot\@oddfoot}
+%\makeatother
+
+% A modified page layout
+\textwidth 6.75in
+\oddsidemargin -0.15in
+\evensidemargin -0.15in
+\textheight 9in
+\topmargin -0.5in
+%%%%%%%%%%%%%%%% end my additions to header
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Predicting Food Insecurity with Machine Learning based on readily avaliable data},
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+% Pandoc toggle for numbering sections (defaults to be off)
+\setcounter{secnumdepth}{0}
+% Pandoc header
+
+
+\usepackage[nomarkers]{endfloat}
+
+\begin{document}
+\begin{frontmatter}
+
+  \title{Predicting Food Insecurity with Machine Learning based on readily
+avaliable data}
+    \author[University Of Illinois At Urbana-Champaign]{Yujun Zhou\corref{c1}}
+   \ead{zhou100@illinois.edu} 
+   \cortext[c1]{Corresponding Author}
+      \address[University Of Illinois At Urbana-Champaign]{Department of Agriculture and Consumer Economics, University of
+Illinois, USA}
+  
+  \begin{abstract}
+  We determine whether corn and soybean futures contract prices are
+  stationary or not.
+  \end{abstract}
+   \begin{keyword} prices, unit root, stationarity \sep \end{keyword}
+ \end{frontmatter}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Seed for random number generation}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Temporal Poverty Prediction using Satellite Imagery(Chen 2017).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  measuring and tracking areas of poor is a necessary step for targeting
+  aid and guiding policy decisions.
+\item
+  obtaining data is time and labor intensive
+\item
+  (Blumenstock 2016)
+\end{enumerate}
+
+Import the Malawi data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# import the data }
+\NormalTok{ihs2010<-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/cleaned/Malawi/IHS2010.csv"}\NormalTok{)}
+\NormalTok{ihs2013<-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/cleaned/Malawi/IHS2013.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Organize the variable names and ready for analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# levels }
+\NormalTok{levels<-}\KeywordTok{c}\NormalTok{(}\StringTok{"ipczone"}\NormalTok{,}\StringTok{"TA"}\NormalTok{,}\StringTok{"clust"}\NormalTok{)}
+
+\CommentTok{# variables }
+\NormalTok{weather<-}\KeywordTok{c}\NormalTok{(}\StringTok{"L12raincytot"}\NormalTok{,}\StringTok{"L12day1rain"}\NormalTok{,}\StringTok{"L12maxdays"}\NormalTok{,}\StringTok{"floodmax"}\NormalTok{)}
+\NormalTok{access<-}\KeywordTok{c}\NormalTok{(}\StringTok{"lag_price"}\NormalTok{,}\StringTok{"lag_thinn"}\NormalTok{)}
+\NormalTok{asset1 <-}\KeywordTok{c}\NormalTok{(}\StringTok{"roof"}\NormalTok{,}\StringTok{"cells_own"}\NormalTok{)}
+\NormalTok{land<-}\KeywordTok{c}\NormalTok{(}\StringTok{"percent_ag"}\NormalTok{,}\StringTok{"elevation"}\NormalTok{,}\StringTok{"nutri_reten_constrained"}\NormalTok{)}
+\NormalTok{distance<-}\KeywordTok{c}\NormalTok{(}\StringTok{"dist_road"}\NormalTok{,}\StringTok{"dist_admarc"}\NormalTok{)}
+\NormalTok{demo<-}\KeywordTok{c}\NormalTok{(}\StringTok{"hhsize"}\NormalTok{,}\StringTok{"hh_age"}\NormalTok{,}\StringTok{"hh_gender"}\NormalTok{,}\StringTok{"asset"}\NormalTok{)}
+
+\NormalTok{model3_variables<-}\KeywordTok{c}\NormalTok{(weather,access,asset1,land,distance,demo)}
+\NormalTok{model2_variables<-}\KeywordTok{c}\NormalTok{(weather,access,asset1,land,distance)}
+\NormalTok{model1_variables<-}\KeywordTok{c}\NormalTok{(weather,access,land,distance)}
+
+\CommentTok{# goal : combine variables at different levels using pastes }
+\CommentTok{# output: variables lists at different levels, TA_vars, ipczone vars, etc. }
+
+\ControlFlowTok{for}\NormalTok{ (level }\ControlFlowTok{in}\NormalTok{ levels)\{}
+  \CommentTok{# assign levels of variables group}
+\NormalTok{  group_var_name<-}\KeywordTok{paste}\NormalTok{(level,}\StringTok{"vars"}\NormalTok{,}\DataTypeTok{sep=}\StringTok{"_"}\NormalTok{)}
+  \KeywordTok{assign}\NormalTok{(group_var_name,}\KeywordTok{c}\NormalTok{())}
+  
+  \ControlFlowTok{for}\NormalTok{(var }\ControlFlowTok{in}\NormalTok{ model3_variables)\{}
+\NormalTok{    temp<-}\KeywordTok{paste}\NormalTok{(level,var,}\DataTypeTok{sep =} \StringTok{"_"}\NormalTok{)}
+\NormalTok{    new<-}\KeywordTok{append}\NormalTok{(}\KeywordTok{get}\NormalTok{(group_var_name),temp)}
+    \KeywordTok{assign}\NormalTok{(group_var_name,new)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{1. Linear/tobit Results}\label{lineartobit-results}
+
+Create the formulas using the formula\_compose function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rcsi_formula<-}\KeywordTok{formula_compose}\NormalTok{(}\StringTok{"RCSI"}\NormalTok{,clust_vars)}
+\NormalTok{logFCS_formula<-}\KeywordTok{formula_compose}\NormalTok{(}\StringTok{"logFCS"}\NormalTok{,clust_vars)}
+\NormalTok{HDDS_formula<-}\KeywordTok{formula_compose}\NormalTok{(}\StringTok{"HDDS"}\NormalTok{,clust_vars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rcsi_predictions<-}\KeywordTok{linear_fit}\NormalTok{(rcsi_formula,ihs2010,ihs2013)}
+\CommentTok{# lm_train_measure<-postResample(rcsi_predictions$pred_train,ihs2010$RCSI)}
+\NormalTok{lm_test_measure<-}\KeywordTok{postResample}\NormalTok{(rcsi_predictions}\OperatorTok{$}\NormalTok{pred_test,ihs2013}\OperatorTok{$}\NormalTok{RCSI)}
+\NormalTok{lm_test_measure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       RMSE   Rsquared        MAE 
+## 7.07641265 0.01254163 5.52598695
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# scatter.smooth(rcsi_predictions$pred_test,ihs2013$RCSI)}
+\end{Highlighting}
+\end{Shaded}
+
+try tobit instead for RCSI. The prediction value (unconditional mean)
+should actually be different with the assumption of non-normal /
+Gaussian error. The old predication function returns a latent mean.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tobit_rcsi<-}\KeywordTok{tobit}\NormalTok{(rcsi_formula,}\DataTypeTok{left =} \DecValTok{0}\NormalTok{,}\DataTypeTok{right =} \OtherTok{Inf}\NormalTok{,}\DataTypeTok{data =}\NormalTok{ihs2010)}
+\NormalTok{mu <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(tobit_rcsi,}\DataTypeTok{newdata=}\NormalTok{ ihs2013)}
+\NormalTok{sigma <-}\StringTok{ }\NormalTok{tobit_rcsi}\OperatorTok{$}\NormalTok{scale}
+\NormalTok{p0 <-}\StringTok{ }\KeywordTok{pnorm}\NormalTok{(mu}\OperatorTok{/}\NormalTok{sigma)}
+\NormalTok{lambda <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{dnorm}\NormalTok{(x)}\OperatorTok{/}\KeywordTok{pnorm}\NormalTok{(x)}
+\NormalTok{ey0 <-}\StringTok{ }\NormalTok{mu }\OperatorTok{+}\StringTok{ }\NormalTok{sigma }\OperatorTok{*}\StringTok{ }\KeywordTok{lambda}\NormalTok{(mu}\OperatorTok{/}\NormalTok{sigma)}
+\NormalTok{ey <-}\StringTok{ }\NormalTok{p0 }\OperatorTok{*}\StringTok{ }\NormalTok{ey0}
+\NormalTok{RCSI_tobit_prediction<-ey}
+\end{Highlighting}
+\end{Shaded}
+
+There are some improvement but still slighlty
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm_test_measure<-}\KeywordTok{postResample}\NormalTok{(RCSI_tobit_prediction,ihs2013}\OperatorTok{$}\NormalTok{RCSI)}
+\NormalTok{lm_test_measure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       RMSE   Rsquared        MAE 
+## 7.06342825 0.01313111 5.40365933
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{scatter.smooth}\NormalTok{(RCSI_tobit_prediction,ihs2013}\OperatorTok{$}\NormalTok{RCSI)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{manuscript_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{logFCS_predictions<-}\KeywordTok{linear_fit}\NormalTok{(logFCS_formula,ihs2010,ihs2013)}
+\NormalTok{lm_test_measure<-}\KeywordTok{postResample}\NormalTok{(rcsi_predictions}\OperatorTok{$}\NormalTok{pred_test,ihs2013}\OperatorTok{$}\NormalTok{logFCS)}
+\NormalTok{lm_test_measure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       RMSE   Rsquared        MAE 
+## 2.47188996 0.09126124 2.11332725
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# scatter.smooth(logFCS_predictions$pred_test,ihs2013$logFCS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{HDDS_predictions<-}\KeywordTok{linear_fit}\NormalTok{(HDDS_formula,ihs2010,ihs2013)}
+\NormalTok{lm_test_measure<-}\KeywordTok{postResample}\NormalTok{(rcsi_predictions}\OperatorTok{$}\NormalTok{pred_test,ihs2013}\OperatorTok{$}\NormalTok{HDDS)}
+\NormalTok{lm_test_measure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       RMSE   Rsquared        MAE 
+## 2.38812209 0.08306447 1.84598055
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# scatter.smooth(HDDS_predictions$pred_test,ihs2013$HDDS)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Methods}\label{methods}
+
+\subsection{Participants}\label{participants}
+
+\subsection{Material}\label{material}
+
+\subsection{Procedure}\label{procedure}
+
+\subsection{Data analysis}\label{data-analysis}
+
+We used for all our analyses.
+
+\section{Results}\label{results}
+
+\section{Discussion}\label{discussion}
+
+\newpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\hypertarget{ref-blumenstock2016fighting}{}
+Blumenstock, Joshua Evan. 2016. ``Fighting Poverty with Data.''
+\emph{Science} 353 (6301). American Association for the Advancement of
+Science: 753--54.
+
+\hypertarget{ref-chentemporal}{}
+Chen, Derek. 2017. ``Temporal Poverty Prediction Using Satellite
+Imagery.''
+
+\end{document}
+
+

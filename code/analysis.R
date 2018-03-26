@@ -1,35 +1,25 @@
----
-title: "Machine Learning on the Malawi data"
-output: pdf_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
-```{r, include=FALSE}
-# packages 
+library(xtable)
+library(ggplot2)
+library(ggfortify)
 library(caret)
 library(AER)
-```
-
-```{r,echo=FALSE}
+library(gridExtra)
 # source the functions 
-source("code/linear.R")
-source("code/mse_calculation.R")
-source("code/formula.R")
-```
-Import the Malawi data. 
+source("code/functions/linear.R")
+source("code/functions/mse_calculation.R")
+source("code/functions/formula.R")
 
-```{r,echo=TRUE}
+
+# Import the Malawi data. 
+
 # import the data 
 ihs2010<-read.csv("data/cleaned/Malawi/IHS2010.csv")
 ihs2013<-read.csv("data/cleaned/Malawi/IHS2013.csv")
-```
 
-Organize the variable names and ready for analysis. 
-```{r,include=TRUE}
+# Organize the variable names and ready for analysis. 
+
 # levels 
 levels<-c("ipczone","TA","clust")
 
@@ -60,28 +50,24 @@ for (level in levels){
   }
 }
 
-```
+
 
 ### 1. Linear/tobit Results 
 
-Create the formulas using the formula_compose function. 
-```{r}
+# Create the formulas using the formula_compose function. 
+
 rcsi_formula<-formula_compose("RCSI",clust_vars)
 logFCS_formula<-formula_compose("logFCS",clust_vars)
 HDDS_formula<-formula_compose("HDDS",clust_vars)
-```
 
-```{r}
 rcsi_predictions<-linear_fit(rcsi_formula,ihs2010,ihs2013)
 # lm_train_measure<-postResample(rcsi_predictions$pred_train,ihs2010$RCSI)
 lm_test_measure<-postResample(rcsi_predictions$pred_test,ihs2013$RCSI)
 lm_test_measure
 # scatter.smooth(rcsi_predictions$pred_test,ihs2013$RCSI)
-```
 
-try tobit instead for RCSI. The prediction value (unconditional mean) should actually be different with the assumption of non-normal / Gaussian error.  The old predication function returns a latent mean.
+# try tobit instead for RCSI. The prediction value (unconditional mean) should actually be different with the assumption of non-normal / Gaussian error.  The old predication function returns a latent mean.
 
-```{r}
 tobit_rcsi<-tobit(rcsi_formula,left = 0,right = Inf,data =ihs2010)
 mu <- predict(tobit_rcsi,newdata= ihs2013)
 sigma <- tobit_rcsi$scale
@@ -90,26 +76,19 @@ lambda <- function(x) dnorm(x)/pnorm(x)
 ey0 <- mu + sigma * lambda(mu/sigma)
 ey <- p0 * ey0
 RCSI_tobit_prediction<-ey
-```
-There are some improvement but still slighlty 
 
-```{r}
+#There are some improvement but still slighlty 
+
 lm_test_measure<-postResample(RCSI_tobit_prediction,ihs2013$RCSI)
 lm_test_measure
 scatter.smooth(RCSI_tobit_prediction,ihs2013$RCSI)
-```
 
-```{r}
 logFCS_predictions<-linear_fit(logFCS_formula,ihs2010,ihs2013)
 lm_test_measure<-postResample(rcsi_predictions$pred_test,ihs2013$logFCS)
 lm_test_measure
 # scatter.smooth(logFCS_predictions$pred_test,ihs2013$logFCS)
-```
-```{r}
+
 HDDS_predictions<-linear_fit(HDDS_formula,ihs2010,ihs2013)
 lm_test_measure<-postResample(rcsi_predictions$pred_test,ihs2013$HDDS)
 lm_test_measure
 # scatter.smooth(HDDS_predictions$pred_test,ihs2013$HDDS)
-```
-
-
