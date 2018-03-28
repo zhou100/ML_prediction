@@ -16,8 +16,9 @@ address:
     address: Department of Agriculture and Consumer Economics, University of Illinois, USA
     
 abstract: |
-  We determine whether corn and soybean futures contract prices are stationary or not. 
-
+  Use machine learning to predict household level food security in Malawi, Tanzania and Uganda.  
+ 
+ 
 keywords: prices, unit root, stationarity
 bibliography: bibliography.bib
 output: rticles::elsevier_article
@@ -31,17 +32,28 @@ library(ggplot2)
 library(ggfortify)
 library(caret)
 library(AER)
+library(broom)
 library(gridExtra)
 ```
 
+# Introduction
 
  Temporal Poverty Prediction using Satellite Imagery[@chentemporal].
 
 1. measuring and tracking areas of poor is a necessary step for targeting aid and guiding policy decisions.
 2. obtaining data is time and labor intensive
-3.  [@blumenstock2016fighting]
 
 
+policy decision making based on poor data  [@blumenstock2016fighting]
+
+based on household survey and other reliable data  [@jean2016combining]
+
+
+
+
+
+ 
+# Data
 
 # Methods
 
@@ -63,4 +75,4 @@ We used for all our analyses.
 \newpage
 
 
-# References 
+# References {#references .unnumbered}
