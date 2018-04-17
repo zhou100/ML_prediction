@@ -15,8 +15,41 @@ source("code/functions/formula.R")
 # Import the Malawi data. 
 
 # import the data 
-ihs2010<-read.csv("data/cleaned/Malawi/IHS2010.csv")
-ihs2013<-read.csv("data/cleaned/Malawi/IHS2013.csv")
+ihs2010<-read.csv("data/cleaned/Malawi/clust_2010.csv")
+ihs2013<-read.csv("data/cleaned/Malawi/clust_2013.csv")
+
+FCS_before<-read.csv("data/cleaned/Malawi/logFCS_predict_CLUST_before.csv")
+lm_test_measure<-postResample(FCS_before[,1],FCS_before[,2])
+lm_test_measure
+
+FCS_after<-read.csv("data/cleaned/Malawi/logFCS_predict_CLUST_after.csv")
+lm_test_measure_after<-postResample(FCS_after[,1],FCS_after[,2])
+lm_test_measure_after
+
+
+
+HDDS_before<-read.csv("data/cleaned/Malawi/HDDS_predict_CLUST_before.csv")
+lm_test_measure<-postResample(HDDS_before[,1],HDDS_before[,2])
+lm_test_measure
+
+HDDS_after<-read.csv("data/cleaned/Malawi/HDDS_predict_CLUST_after.csv")
+lm_test_measure_after<-postResample(HDDS_after[,1],HDDS_after[,2])
+lm_test_measure_after
+
+
+
+RCSI_before<-read.csv("data/cleaned/Malawi/RCSI_predict_CLUST_before.csv")
+lm_test_measure<-postResample(HDDS_before[,1],HDDS_before[,2])
+lm_test_measure
+
+RCSI_after<-read.csv("data/cleaned/Malawi/RCSI_predict_CLUST_after.csv")
+lm_test_measure_after<-postResample(HDDS_after[,1],HDDS_after[,2])
+lm_test_measure_after
+
+
+
+
+lm_test_measure
 
 # Organize the variable names and ready for analysis. 
 
@@ -49,8 +82,7 @@ for (level in levels){
     assign(group_var_name,new)
   }
 }
-
-
+ 
 
 ### 1. Linear/tobit Results 
 
