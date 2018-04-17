@@ -19,7 +19,7 @@ abstract: |
   We determine whether corn and soybean futures contract prices are stationary or not. 
 
 keywords: prices, unit root, stationarity
-bibliography: bibliography.bib
+bibliography: My Collection.bib
 output: rticles::elsevier_article
 ---
 
